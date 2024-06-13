@@ -1,0 +1,17 @@
+{
+  "name": "tailwindcss-test1",
+  "version": "1.0.0",
+  "description": "test1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./src/"
+  },
+  "author": "Marco Antonio Aguilar",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "parcel": "^2.12.0",
+    "tailwindcss": "^3.4.3"
+  }
+}
