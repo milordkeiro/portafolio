@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  #mainMenu {
+    @apply md:border md:border-zinc-700 md:rounded-full px-4 py-8 md:bg-zinc-900;
+  }
+  nav {
+    @apply bg-zinc-900 w-screen h-screen  absolute top-0 left-[60px] p-10 pt-20 transition-all duration-500 z-10;
+  }
+  nav.show {
+    @apply left-[-250px];
+  }
+  nav .linkMenu svg {
+    @apply w-10 h-10;
+  }
+  nav .linkMenu span {
+    @apply block;
+  }
+  @media (min-width: 768px) {
+    nav {
+      @apply h-auto w-auto block bg-transparent static p-0;
+    }
+    nav .linkMenu svg {
+      @apply w-8 h-8;
+    }
+  }
+}
+
+@layer components {
+  .linkMenu {
+    @apply flex flex-row md:flex-col gap-1 text-white items-center relative transition-all duration-300;
+  }
+  .linkMenu:hover {
+    @apply text-primary;
+  }
+
+  .linkMenu:hover span {
+    @apply block absolute -left-10 -translate-x-1/2 top-0 px-2 py-1 bg-zinc-700 text-white rounded-md md:text-xs;
+  }
+
+  .skill-card {
+    @apply block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center transition-all duration-500;
+  }
+  .project-card {
+    @apply rounded-3xl relative border border-zinc-700 mb-8 h-full;
+  }
+
+  .chip {
+    @apply block rounded-full py-1 px-4 border-zinc-700 border w-fit hover:bg-primary hover:text-black transition-all duration-300;
+  }
+  .chip.active {
+    @apply bg-primary text-black;
+  }
+
+  .experience {
+    @apply flex flex-col gap-2 relative pl-8 md:pl-16 ml-4 md:ml-4 pb-10 md:pb-20 border-l border-zinc-700;
+  }
+  .experience::before {
+    @apply absolute -left-2 top-0 w-4 h-4 bg-zinc-700 rounded-full transition-all duration-300;
+    content: "";
+  }
+  .experience .date {
+    @apply text-sm text-zinc-400 font-semibold transition-all duration-300;
+  }
+  .experience h3 {
+    @apply text-2xl text-white;
+  }
+  .experience:hover .date {
+    @apply text-primary;
+  }
+  .experience:hover::before {
+    @apply bg-primary;
+  }
+
+  @media (min-width: 768px) {
+    nav .linkMenu span {
+      @apply hidden;
+    }
+  }
+}

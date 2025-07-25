@@ -8,14 +8,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
 
   </head>
   <body class="bg-zinc-900 font-light font-Inter">
+    <div id="mainMenu" class="fixed top-2 right-2 transform z-50 md:fixed md:top-1/2  md:-translate-y-1/2" x-data="{ open: false }">
+        <button class="border border-zinc-700 rounded-full p-4 bg-zinc-900 block md:hidden fixed top-0 right-0 text-white z-20" @click="open = !open">
+            <svg  x-show="!open" xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
+            <svg  x-show="open" xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+        </button>
+        <nav x-bind:class="open ? 'show' : ''">
+            <ul class="flex flex-col gap-8 text-white">
+                <li>
+                    <a href="#home" class="linkMenu">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                    <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about" class="linkMenu">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle-square"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9.5 9.5m-6.5 0a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0 -13 0" /><path d="M10 10m0 2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2z" /></svg>
+                        <span>Skills</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills" class="linkMenu">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M12 12l0 .01" /><path d="M3 13a20 20 0 0 0 18 0" /></svg>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects" class="linkMenu">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-stars"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17.8 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" /><path d="M6.2 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" /><path d="M12 9.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" /></svg>
+                    <span>Experience</span>
+                    </a>
+                </li>                
+            </ul>
+        </nav>
+    </div>
     <main class="w-full max-w-[1700px] mx-auto">
         <div id="avatar-container" class="w-full flex align-middle justify-center h-full overflow-y-auto max-md:mt-4 md:fixed md:left-0 md:top-1/2 md:w-1/3 md:-translate-y-1/2 md:px-2" >
             <div class="rounded-3xl border-zinc-700 border p-8 max-w-96 m-auto max-md:mx-4">
                 <h2 class="text-3xl md:text-2xl lg:text-3xl text-white mb-4">Marco Antonio Aguilar Gomez</h2>
-                <h2 class="text-xl text-end text-white">Fullstack Developer</h2>
+                <h2 class="text-xl text-end text-white">Fullstack Web Developer</h2>
                 <img src="./img/avatar-portafolio.jpg" class="rounded-3xl max-h-[calc(100vh-470px)] m-auto min-h-40" alt="Marco Antonio Aguilar">
                 <div class="p-4">
                     <p class="text-white mt-4">
@@ -66,8 +101,8 @@
 
             </div>
         </div>
-        <div class="flex place-content-end md:mt-16 pt-4 text-zinc-400 ">
-            <div class="w-full md:w-2/3 md:pr-16 px-4">
+        <div class="flex place-content-end md:mt-16 pt-4 text-zinc-400 px-4 md:px-0">
+            <div class="w-full md:w-2/3 md:pr-20 px-0">
                 <div class="my-7 pb-6">
                     <h1 class="text-white text-7xl max-md:text-5xl">Hi there!,<br> I'm <span class="text-primary font-semibold">Marco</span><br> Fullstack Developer</h1>
                 <p class="my-6">I'm <strong class="text-white font-semibold">responsible person</strong> with my projects and always seeking to deliver a high quality product.<br> 
@@ -75,12 +110,12 @@
                     With <strong class="text-white font-semibold">+10 years</strong> of experience working with various technologies</p>
                 </div>
 
-                <div class="my-10">
+                <div id="skills" class="my-10">
                     <h2 class="text-5xl max-md:text-4xl text-white mb-8">Highlights <span class="text-primary">Skills</span></h2>
                     <h3 class="text-white text-2xl my-2">Programming Language</h3>
                     <div class="flex flex-wrap my-6">
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-javascript md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z" />
@@ -92,7 +127,7 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-php md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M12 12m-10 0a10 9 0 1 0 20 0a10 9 0 1 0 -20 0" />
@@ -106,7 +141,7 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-typescript md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M15 17.5c.32 .32 .754 .5 1.207 .5h.543c.69 0 1.25 -.56 1.25 -1.25v-.25a1.5 1.5 0 0 0 -1.5 -1.5a1.5 1.5 0 0 1 -1.5 -1.5v-.25c0 -.69 .56 -1.25 1.25 -1.25h.543c.453 0 .887 .18 1.207 .5" />
@@ -115,11 +150,11 @@
                                     <path d="M21 19v-14a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2 -2z" />
                                   </svg>
                                 TypeScript<br>
-                                <div class="text-primary text-lg">1 year</div>
+                                <div class="text-primary text-lg">3 year</div>
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coffee md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M3 14c.83 .642 2.077 1.017 3.5 1c1.423 .017 2.67 -.358 3.5 -1c.83 -.642 2.077 -1.017 3.5 -1c1.423 -.017 2.67 .358 3.5 1" />
@@ -138,7 +173,7 @@
                     <h3 class="text-white text-2xl my-2">Frameworks and Libraries</h3>
                     <div class="flex flex-wrap my-6">
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-angular md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M5.428 17.245l6.076 3.471a1 1 0 0 0 .992 0l6.076 -3.471a1 1 0 0 0 .495 -.734l1.323 -9.704a1 1 0 0 0 -.658 -1.078l-7.4 -2.612a1 1 0 0 0 -.665 0l-7.399 2.613a1 1 0 0 0 -.658 1.078l1.323 9.704a1 1 0 0 0 .495 .734z" />
@@ -150,7 +185,23 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-react md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M6.306 8.711c-2.602 .723 -4.306 1.926 -4.306 3.289c0 2.21 4.477 4 10 4c.773 0 1.526 -.035 2.248 -.102" />
+                                    <path d="M17.692 15.289c2.603 -.722 4.308 -1.926 4.308 -3.289c0 -2.21 -4.477 -4 -10 -4c-.773 0 -1.526 .035 -2.25 .102" />
+                                    <path d="M6.305 15.287c-.676 2.615 -.485 4.693 .695 5.373c1.913 1.105 5.703 -1.877 8.464 -6.66c.387 -.67 .733 -1.339 1.036 -2" />
+                                    <path d="M17.694 8.716c.677 -2.616 .487 -4.696 -.694 -5.376c-1.913 -1.105 -5.703 1.877 -8.464 6.66c-.387 .67 -.733 1.34 -1.037 2" />
+                                    <path d="M12 5.424c-1.925 -1.892 -3.82 -2.766 -5 -2.084c-1.913 1.104 -1.226 5.877 1.536 10.66c.386 .67 .793 1.304 1.212 1.896" />
+                                    <path d="M12 18.574c1.926 1.893 3.821 2.768 5 2.086c1.913 -1.104 1.226 -5.877 -1.536 -10.66c-.375 -.65 -.78 -1.283 -1.212 -1.897" />
+                                    <path d="M11.5 12.866a1 1 0 1 0 1 -1.732a1 1 0 0 0 -1 1.732z" />
+                                </svg>
+                                React<br>
+                                  <div class="text-primary text-lg">1 years</div>  
+                            </div>
+                        </div>
+                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flame md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M12 12c2 -2.96 0 -7 -1 -8c0 3.038 -1.773 4.741 -3 6c-1.226 1.26 -2 3.24 -2 5a6 6 0 1 0 12 0c0 -1.532 -1.056 -3.94 -2 -5c-1.786 3 -2.791 3 -4 2z" />
@@ -160,7 +211,7 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-nodejs md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M9 9v8.044a2 2 0 0 1 -2.996 1.734l-1.568 -.9a3 3 0 0 1 -1.436 -2.561v-6.635a3 3 0 0 1 1.436 -2.56l6 -3.667a3 3 0 0 1 3.128 0l6 3.667a3 3 0 0 1 1.436 2.561v6.634a3 3 0 0 1 -1.436 2.56l-6 3.667a3 3 0 0 1 -3.128 0" />
@@ -171,7 +222,7 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-vue md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M16.5 4l-4.5 8l-4.5 -8" />
@@ -182,7 +233,7 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-bootstrap md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M2 12a2 2 0 0 0 2 -2v-4a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2" />
@@ -194,7 +245,7 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-letter-j-small md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M10 8h4v6a2 2 0 1 1 -4 0" />
@@ -208,7 +259,7 @@
                     <h3 class="text-white text-2xl my-2">CMS Platform</h3>
                     <div class="flex flex-wrap my-6">
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-wordpress md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M9.5 9h3" />
@@ -223,7 +274,7 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-drupal md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M12 2c0 4.308 -7 6 -7 12a7 7 0 0 0 14 0c0 -6 -7 -7.697 -7 -12z" />
@@ -238,7 +289,7 @@
                     <h3 class="text-white text-2xl my-2">Other tools</h3>
                     <div class="flex flex-wrap my-6">
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-adobe md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M12.893 4.514l7.977 14a.993 .993 0 0 1 -.394 1.365a1.04 1.04 0 0 1 -.5 .127h-3.476l-4.5 -8l-2.5 4h1.5l2 4h-8.977c-.565 0 -1.023 -.45 -1.023 -1c0 -.171 .045 -.34 .13 -.49l7.977 -13.993a1.034 1.034 0 0 1 1.786 0z" />
@@ -248,7 +299,7 @@
                             </div>
                         </div>
                         <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="block rounded-3xl bg-zinc-800 border-2 border-zinc-800 text-white p-2 md:p-4 hover:border-primary hover:border-2 m-1 max-md:text-center">
+                            <div class="skill-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-adobe md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M12.893 4.514l7.977 14a.993 .993 0 0 1 -.394 1.365a1.04 1.04 0 0 1 -.5 .127h-3.476l-4.5 -8l-2.5 4h1.5l2 4h-8.977c-.565 0 -1.023 -.45 -1.023 -1c0 -.171 .045 -.34 .13 -.49l7.977 -13.993a1.034 1.034 0 0 1 1.786 0z" />
@@ -269,21 +320,48 @@
                         <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2">Responsive design</span>
                     </div>
                 </div>
-                
-                <div class="my-10 pt-8">
+
+                <div class="spacing w-full h-10 md:h-20"></div>
+                <!-- +++++++ Portafolio +++++++ -->
+                <div id="projects" class="my-10 pt-8" 
+                    x-data="{ 
+                        selectedCategory: 'All', 
+                        handymanProject: ['angular', 'mobile-app','php', 'codeigniter','javascript'],
+                        spadamProject: ['angular', 'mobile-app','php','javascript'],
+                        webPlanificateProject: ['php','javascript'],
+                        pdaTigoProject: ['angular','mobile-app','php','javascript'],
+                        handladigitaltProject: ['php','javascript'],
+                        checkingcomProject: ['wordpress','php','javascript'],
+                        relierProject: ['wordpress','javascript'],
+                        nubederegalosProject: ['wordpress','php','javascript'],
+                        wownomadsProject: ['angular','php','javascript','codeigniter'],
+                        commentusProject: ['angular', 'php','javascript','codeigniter'],
+                    }"
+                >
                     <h2 class="text-5xl max-md:text-4xl text-white mb-8">Featured <span class="text-primary">Projects</span></h2>
-                    <div class="flex flex-wrap ">
-                        <div class="w-full">
-                            <div class="group rounded-3xl relative border border-zinc-700">
+                    <div class="flex items-center gap-2 mb-8 flex-wrap">
+                        <strong>Filter by: </strong>
+                        <span class="chip cursor-pointer" x-on:click="selectedCategory = 'All'" :class="{'active': selectedCategory == 'All'}">All</span>
+                        <span class="chip cursor-pointer" x-on:click="selectedCategory = 'angular'" :class="{'active': selectedCategory == 'angular'}">Angular</span>
+                        <span class="chip cursor-pointer" x-on:click="selectedCategory = 'wordpress'" :class="{'active': selectedCategory == 'wordpress'}">Wordpress</span>
+                        <span class="chip cursor-pointer" x-on:click="selectedCategory = 'mobile-app'" :class="{'active': selectedCategory == 'mobile-app'}">Mobile App</span>
+                        <span class="chip cursor-pointer" x-on:click="selectedCategory = 'php'" :class="{'active': selectedCategory == 'php'}">PHP</span>
+                        <span class="chip cursor-pointer" x-on:click="selectedCategory = 'javascript'" :class="{'active': selectedCategory == 'javascript'}">JavaScript</span>
+                        <span class="chip cursor-pointer" x-on:click="selectedCategory = 'codeigniter'" :class="{'active': selectedCategory == 'codeigniter'}">Codeigniter</span>
+                    </div>
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-8">
+                        <!-- +++++++ HandyMan +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || handymanProject.includes(selectedCategory)">
+                            <div id="handyman-project" class="project-card group">
                                 <div class="relative">
                                     <img src="./img/handyman-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32">
-                                    <h3 class="text-white text-4xl my-2 w-full md:w-1/2">Handyman</h3>
-                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">HandyMan</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2 items-center">
                                         <a href="https://handyman.com.bo" title="Handyman Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="30" height="30" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
                                                 <path d="M11 13l9 -9" />
@@ -291,14 +369,16 @@
                                               </svg>
                                         </a>
                                         <a href="https://tuportafolio.handyman.com.bo/" title="Dashboard Handyman Expert" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings hover:stroke-primary" width="30" height="30" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-dashboard hover:stroke-primary" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
-                                                <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                                              </svg>
+                                                <path d="M4 4h6v8h-6z" />
+                                                <path d="M4 16h6v4h-6z" />
+                                                <path d="M14 12h6v8h-6z" />
+                                                <path d="M14 4h6v4h-6z" />
+                                            </svg>
                                         </a>
                                         <a href="https://play.google.com/store/apps/details?id=bo.com.handyman.tuportafolio.app" title="HandyMan Portafolio App" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-android hover:stroke-primary" width="30" height="30" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-android hover:stroke-primary" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M4 10l0 6" />
                                                 <path d="M20 10l0 6" />
@@ -316,7 +396,7 @@
                                         <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">CodeIgniter</span>
                                         <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">JavaScript</span>
                                         <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
-                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Capacitor</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">CapacitorJS</span>
                                         <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MySql</span>
                                         <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Firebase</span>
                                         <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Boostrap</span>
@@ -330,12 +410,517 @@
                                     </div>
 
                                 </div>
-                                
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        This personal project is a startup. My passion to create and make it grow my ideas pushed me to develop this app.<br> 
+                                        Frontend, backend, main site, dashboard administration and all designs of the platform are developed by myself.
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        <!-- +++++++ SPADAM APP +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || spadamProject.includes(selectedCategory)">
+                            <div id="spadam-app-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/spadam-app-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">Spådam App</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="https://www.spadam.se/" title="WebSite Spadam.se" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world-www hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M19.5 7a9 9 0 0 0 -7.5 -4a8.991 8.991 0 0 0 -7.484 4" />
+                                                <path d="M11.5 3a16.989 16.989 0 0 0 -1.826 4" />
+                                                <path d="M12.5 3a16.989 16.989 0 0 1 1.828 4" />
+                                                <path d="M19.5 17a9 9 0 0 1 -7.5 4a8.991 8.991 0 0 1 -7.484 -4" />
+                                                <path d="M11.5 21a16.989 16.989 0 0 1 -1.826 -4" />
+                                                <path d="M12.5 21a16.989 16.989 0 0 0 1.828 -4" />
+                                                <path d="M2 10l1 4l1.5 -4l1.5 4l1 -4" />
+                                                <path d="M17 10l1 4l1.5 -4l1.5 4l1 -4" />
+                                                <path d="M9.5 10l1 4l1.5 -4l1.5 4l1 -4" />
+                                              </svg>
+                                        </a>
+                                        <a href="https://itunes.apple.com/se/app/id724695773?mt=8" title="App Store Spadam.se App" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-apple hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M8.286 7.008c-3.216 0 -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538 3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011 -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606 -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036 -1.077 -3.214 -1.077z" />
+                                                <path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2" />
+                                              </svg>
+                                        </a>
+                                        <a href="https://play.google.com/store/apps/details?id=se.spadam.application&hl=sv" title="Google Play Spadam.se App" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-android hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 10l0 6" />
+                                                <path d="M20 10l0 6" />
+                                                <path d="M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0" />
+                                                <path d="M8 3l1 2" />
+                                                <path d="M16 3l-1 2" />
+                                                <path d="M9 18l0 3" />
+                                                <path d="M15 18l0 3" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Angular</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">JavaScript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">CapacitorJS</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MySql</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Firebase</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MaterializeCSS</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">HTML, CSS</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Object-oriented programming</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">S.O.L.I.D.</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Database Modeling, SQL</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        The app displays a list of agents and their statuses. You can mark certain agents to receive a notification when they become available, allowing you to call them when they are ready
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- +++++++ Web Planificate +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || webPlanificateProject.includes(selectedCategory)">
+                            <div id="web-planificate-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/webplanificate-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">Planificate TIGO</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="javascript:return false" title="Private Network" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-lock" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1c.397 -1.768 -.285 -3.593 -1.788 -4.787c-1.503 -1.193 -3.6 -1.575 -5.5 -1s-3.315 2.019 -3.712 3.787c-2.199 -.088 -4.155 1.326 -4.666 3.373c-.512 2.047 .564 4.154 2.566 5.027" />
+                                                <path d="M8 15m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" />
+                                                <path d="M10 15v-2a2 2 0 1 1 4 0v2" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">JavaScript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">JAVA</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">DRUPAL</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MySql</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">HTML, CSS</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Object-oriented programming</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">S.O.L.I.D.</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Client-Server</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Database Modeling, SQL</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        Information Assistant for the Call Center
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- +++++++ PDA TIGO +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || pdaTigoProject.includes(selectedCategory)">
+                            <div id="pda-tigo-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/pda-tigo-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">PDA TIGO</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="javascript:return false" title="Private Network" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-lock" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1c.397 -1.768 -.285 -3.593 -1.788 -4.787c-1.503 -1.193 -3.6 -1.575 -5.5 -1s-3.315 2.019 -3.712 3.787c-2.199 -.088 -4.155 1.326 -4.666 3.373c-.512 2.047 .564 4.154 2.566 5.027" />
+                                                <path d="M8 15m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" />
+                                                <path d="M10 15v-2a2 2 0 1 1 4 0v2" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Angular</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">IONIC</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Javascript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">TypeScript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">AWS Services</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">HTML, CSS</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Object-oriented programming</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">S.O.L.I.D.</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Client-Server</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Database Modeling, SQL</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        Line recovery by scanning the client's CI and SIM Card
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- +++++++ Handladigitalt.se +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || handladigitaltProject.includes(selectedCategory)">
+                            <div id="relier-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/handladigitalt-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">Handladigitalt.se</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="https://handladigitalt.se/" title="Handladigitalt.se Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+                                                <path d="M11 13l9 -9" />
+                                                <path d="M15 4h5v5" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Javascript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MySql</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Smarty</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">HTML, CSS</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MVC Architecture</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">SEO</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Database Modeling, SQL</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        An online store where a complete upgrade from PHP 5 to PHP 8 was carried out, along with library updates, 
+                                        improvements to its functionalities, support in the checkout process, and performance optimization of the site.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- +++++++ Checking.com +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || checkingcomProject.includes(selectedCategory)">
+                            <div id="relier-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/checkin-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">Checkin.com</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="https://checkin.com/" title="Handladigitalt.se Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+                                                <path d="M11 13l9 -9" />
+                                                <path d="M15 4h5v5" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">WordPress</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Alpine.JS</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">TailwindCSS</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Figma</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">WordPress Architecture</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">SEO</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        An online store where a complete upgrade from PHP 5 to PHP 8 was carried out, along with library updates, 
+                                        improvements to its functionalities, support in the checkout process, and performance optimization of the site.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- +++++++ Relier.se +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || relierProject.includes(selectedCategory)">
+                            <div id="relier-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/relier-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">Relier.se</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="https://relier.se/" title="Relier.se Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+                                                <path d="M11 13l9 -9" />
+                                                <path d="M15 4h5v5" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">WordPress</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">DIVI</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Javascript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MySql</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">HTML, CSS</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">WordPress Architecture</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Client-Server</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">SEO</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        Site in Wordpress with DIVI builder. All sections of the site were updated based on created design by graphic designers. Optimized in performance for SEO. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- +++++++ Nubederegalos.com +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || nubederegalosProject.includes(selectedCategory)">
+                            <div id="relier-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/nubederegalos-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">Nubederegalos.com</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="https://nubederegalos.com/" title="Nube de regalos Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+                                                <path d="M11 13l9 -9" />
+                                                <path d="M15 4h5v5" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">WordPress</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">WooCommerce</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Javascript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MySql</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">HTML, CSS</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">WordPress Architecture</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Client-Server</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">SEO</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        Site in Wordpress with DIVI builder. All sections of the site were updated based on created design by graphic designers. Optimized in performance for SEO. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- +++++++ WOW NOMADS  +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || wownomadsProject.includes(selectedCategory)">
+                            <div id="wownomads-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/wow-nomads-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">WOW Nomads</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="https://wownomads.com/" title="Wownomads Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+                                                <path d="M11 13l9 -9" />
+                                                <path d="M15 4h5v5" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Angular</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Codeigniter</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Javascript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MySql</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Boostrap</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Object-oriented programming</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">S.O.L.I.D.</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Client-Server</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Database Modeling, SQL</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        Informational website for digital nomads. A list of cities around the world showing relevant information for this type of user such as climate, cost of living, internet speed, safe places, where to work and others.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- +++++++ CommentUs Dashboard +++++++ -->
+                        <div class="w-full" x-show="selectedCategory == 'All' || commentusProject.includes(selectedCategory)">
+                            <div id="commentus-project" class="project-card group">
+                                <div class="relative">
+                                    <img src="./img/commentus-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
+                                </div>
+                                <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
+                                    <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">CommentUs Dashboard</h3>
+                                    <div class="flex justify-end w-full md:w-1/2 gap-2">
+                                        <a href="https://commentus.io/" title="CommentUs Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+                                                <path d="M11 13l9 -9" />
+                                                <path d="M15 4h5v5" />
+                                              </svg>
+                                        </a>
+                                    </div>
+                                    <div class="flex flex-wrap w-full">
+                                        <h4 class="w-full my-1">Technologies:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Angular</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Codeigniter</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Javascript</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">PHP</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MySql</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Boostrap</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Ng2-charts</span>
+                                        <h4 class="w-full my-1">Architecture, patterns and best practices:</h4>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">MVC Architecture</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">UI / UX desig</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Client-Server</span>
+                                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2 w-fit">Database Modeling, SQL</span>
+                                    </div>
+
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <strong>Brief description</strong>
+                                    <p class=" text-sm">
+                                        Dashboard to view reports of completed surveys. Graphical reports based on questions and answers. The survey is created in the administrator dashboard.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        
                     </div>
-                    <br><br><br><br><br><br><br>
                 </div>
+
+                <div class="spacing w-full h-10 md:h-20"></div>
+                <!-- +++++++ Education & Experience +++++++ -->
+                <div id="experience" class="my-10 pt-8">
+                    <h2 class="text-5xl max-md:text-4xl text-white mb-8">Experience &  <span class="text-primary">Education</span></h2>
+                    <div class="flex flex-col gap-0">
+                        <div class="experience">
+                            <span class="date">August 2017 – June 2023</span>
+                            <h3>Full Stack Web Developer</h3>
+                            <p>Game Lounge</p>
+                            <p>
+                               <ul>
+                                <li>Analysis and objective maintenance for SEO on hundrends of pages.</li>
+                                <li>Developed Mobile apps using Angular, AngularJS, Ionic,PHP, MySQL (Spadam.se, Domainstats.com )</li>
+                               </ul> 
+                            </p>
+                        </div>
+                        <div class="experience">
+                            <span class="date">Since 2018</span>
+                            <h3>Fullstack Developer</h3>
+                            <p>HandyMan Project</p>
+                            <p>
+                                Frontend, backend, main site, dashboard administration and all graphic designs of the platform are developed by myself.
+                            </p>
+                        </div>
+                        <div class="experience">
+                            <span class="date">July 2018 - Abril 2023</span>
+                            <h3>Frontend Developer</h3>
+                            <p>Mod Army</p>
+                            <p>
+                                <ul>
+                                    <li>Project Manager Frontend development in a Help Assistant for Call centers (called WebPlanificate ver.2). (Drupal and Java in backend)</li>
+                                    <li>PDA Tigo: Line recovery by scanning the client's CI and SIM Card. Used from mobile devices. (Angular, IONIC, AWS Services)</li>
+                                    <li>Web app for nomads users. Developed on Angular 13 Fronend and CodeIgniter 4 Backend. Link: Wownomads.com</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="experience">
+                            <span class="date">November 2013 - August 2017</span>
+                            <h3>Senior Web Developer</h3>
+                            <p>TodaysWeb</p>
+                            <p>
+                                <ul>
+                                    <li>Working with SEO strategy and improving sites to achieve prominent rankings across top browser platforms</li>
+                                    <li>Worked on developing Mobile apps focused on Geo Location (Alttibil App)</li>
+                                    <li>Support and manage Wordpress sites</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="experience">
+                            <span class="date">July 2008 - September 2013</span>
+                            <h3>Web Development</h3>
+                            <p>Wired and Wireless Telecommunication</p>
+                            <p>
+                                <ul>
+                                    <li>Developer and designer in interactive games for touch screens for VIVA and TIGO telecommunication companies (ActionScript and JavaScript)</li>
+                                    <li>Coded websites using PHP frameworks (Codeigniter, Symfony, CakerPHP), HTML, CSS, JavaScript, and jQuery languages.</li>
+                                    <li>Advertising designer for banners and video clips(Adobe After Effects, Photoshop and Illustrator)</li>
+                                    <li>A Backtones app for cell phones which had a list of songs categorized by genre and ranking. For VIVA Telecommunication company</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="experience">
+                            <span class="date">March 2006 - September 2013</span>
+                            <h3>Web Development</h3>
+                            <p>Omnilogic SRL</p>
+                            <p>
+                                <ul>
+                                    <li>Developer and designer in interactive games for touch screens for VIVA and TIGO telecommunication companies (ActionScript and JavaScript)</li>
+                                    <li>Coded websites using PHP frameworks (Codeigniter, Symfony, CakerPHP), HTML, CSS, JavaScript, and jQuery languages.</li>
+                                    <li>Advertising designer for banners and video clips(Adobe After Effects, Photoshop and Illustrator)</li>
+                                    <li>A Backtones app for cell phones which had a list of songs categorized by genre and ranking. For VIVA Telecommunication company</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
