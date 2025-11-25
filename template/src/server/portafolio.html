@@ -1,342 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/main.css" rel="stylesheet">
-    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
-    <link rel="preload" href="/uploads/avatar-portafolio.jpg" as="image" type="image/jpeg">
-
-    <title>My First Parcel App</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <!-- Standard favicon -->
-    <link rel="icon" type="image/x-icon" href="/uploads/favicon.ico">
-    
-    <!-- PNG favicons for better quality -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
-    
-    <!-- Apple Touch Icons (iOS) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
-        
-    <!-- Android Chrome -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/uploads/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/uploads/android-chrome-512x512.png">
-    
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="/uploads/site.webmanifest">
-    <style>
-    html {
-            scroll-behavior: smooth;
-         }
-    </style>
-  </head>
-  <body class="bg-zinc-900 font-light font-Inter">
-    <div id="mainMenu" class="fixed top-2 right-2 transform z-50 md:fixed md:top-1/2  md:-translate-y-1/2" x-data="{ open: false }">
-        <button class="border border-zinc-700 rounded-full p-4 bg-zinc-900 block md:hidden fixed top-0 right-0 text-white z-20" @click="open = !open">
-            <svg  x-show="!open" xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
-            <svg  x-show="open" xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
-        </button>
-        <nav x-bind:class="open ? 'show' : ''">
-            <ul class="flex flex-col gap-8 text-white">
-                <li>
-                    <a href="#home" class="linkMenu">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
-                    <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#skills" class="linkMenu">
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle-square"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9.5 9.5m-6.5 0a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0 -13 0" /><path d="M10 10m0 2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2z" /></svg>
-                        <span>Skills</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#projects" class="linkMenu">
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M12 12l0 .01" /><path d="M3 13a20 20 0 0 0 18 0" /></svg>
-                        <span>Projects</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#experience" class="linkMenu">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-stars"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17.8 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" /><path d="M6.2 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" /><path d="M12 9.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" /></svg>
-                    <span>Experience</span>
-                    </a>
-                </li>                
-            </ul>
-        </nav>
-    </div>
-    <main class="w-full max-w-[1700px] mx-auto">
-        <div id="avatar-container" class="w-full flex align-middle justify-center h-full overflow-y-auto max-md:mt-4 md:fixed md:left-0 md:top-1/2 md:w-1/3 md:-translate-y-1/2 md:px-2" >
-            <div class="rounded-3xl border-zinc-700 border p-8 max-w-96 m-auto max-md:mx-4">
-                <h2 class="text-3xl md:text-2xl lg:text-3xl text-white mb-4">Marco Antonio Aguilar Gomez</h2>
-                <h2 class="text-xl text-end text-white">Fullstack Web Developer</h2>
-                <img src="./img/avatar-portafolio.jpg" class="rounded-3xl max-h-[calc(100vh-470px)] m-auto min-h-40" alt="Marco Antonio Aguilar">
-                <div class="p-4">
-                    <p class="text-white mt-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-mobile float-start  mr-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" />
-                        <path d="M11 4h2" />
-                        <path d="M12 17v.01" />
-                        </svg>
-                        (+591) 70733141
-                    </p>
-                    <p class="text-white mt-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail float-start  mr-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
-                            <path d="M3 7l9 6l9 -6" />
-                        </svg>
-                        keiro3@gmail.com
-                    </p>
-                    <p class="flex justify-center gap-2 mt-3 ">
-                        <a href="https://www.linkedin.com/in/marco-antonio-aguilar-gomez-0b614886/" class="group border-2 border-zinc-700 hover:border-primary rounded-full p-2 block w-fit" target="_blank" alt="LinkedIn" title="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin stroke-white group-hover:stroke-primary" width="28" height="28" viewBox="0 0 24 24" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
-                                <path d="M8 11l0 5" />
-                                <path d="M8 8l0 .01" />
-                                <path d="M12 16l0 -5" />
-                                <path d="M16 16v-3a2 2 0 0 0 -4 0" />
-                              </svg>
-                        </a>
-                        <a href="https://www.facebook.com/milord.marco" class="group border-2 border-zinc-700 hover:border-primary rounded-full p-2 block w-fit" target="_blank" alt="Upwork" title="Upwork">
-                            <svg  xmlns="http://www.w3.org/2000/svg"   
-                            width="28" height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-upwork stroke-white group-hover:stroke-primary"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7v5a3 3 0 0 0 6 0v-5h1l4 6c.824 1.319 1.945 2 3.5 2a3.5 3.5 0 0 0 0 -7c-2.027 0 -3.137 1 -3.5 3c-.242 1.33 -.908 4 -2 8" /></svg>
-                        </a>
-                    </p>
-                    <p>
-                        <a href="mailto:keiro3@gmail.com" class="bg-primary rounded-full p-3 w-full block text-black font-semibold text-center mt-4">
-                            CONTACT ME!
-                        </a>
-                    </p>
-                    <p class="text-white text-center mt-4">
-                        From Bolivia
-                    </p>  
-                </div>
-                
-
-            </div>
-        </div>
-        <div class="flex place-content-end md:mt-16 pt-4 text-zinc-400 px-4 md:px-0">
-            <div class="w-full md:w-2/3 md:pr-20 px-0">
-                <div id="home" class="my-7 pb-6">
-                    <h1 class="text-white text-7xl max-md:text-5xl">Hi there!,<br> I'm <span class="text-primary font-semibold">Marco</span><br> Fullstack Developer</h1>
-                <p class="my-6">I'm <strong class="text-white font-semibold">responsible person</strong> with my projects and always seeking to deliver a high quality product.<br> 
-                    <strong class="text-white font-semibold">Passionate</strong> about learning new technologies. <br>
-                    With <strong class="text-white font-semibold">+10 years</strong> of experience working with various technologies</p>
-                </div>
-
-                <div id="skills" class="my-10">
-                    <h2 class="text-5xl max-md:text-4xl text-white mb-8">Highlights <span class="text-primary">Skills</span></h2>
-                    <h3 class="text-white text-2xl my-2">Programming Language</h3>
-                    <div class="flex flex-wrap my-6">
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-javascript md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z" />
-                                    <path d="M7.5 8h3v8l-2 -1" />
-                                    <path d="M16.5 8h-2.5a.5 .5 0 0 0 -.5 .5v3a.5 .5 0 0 0 .5 .5h1.423a.5 .5 0 0 1 .495 .57l-.418 2.93l-2 .5" />
-                                  </svg>
-                                JavaScript<br>
-                                <div class="text-primary text-lg">7 years</div>
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-php md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12 12m-10 0a10 9 0 1 0 20 0a10 9 0 1 0 -20 0" />
-                                    <path d="M5.5 15l.395 -1.974l.605 -3.026h1.32a1 1 0 0 1 .986 1.164l-.167 1a1 1 0 0 1 -.986 .836h-1.653" />
-                                    <path d="M15.5 15l.395 -1.974l.605 -3.026h1.32a1 1 0 0 1 .986 1.164l-.167 1a1 1 0 0 1 -.986 .836h-1.653" />
-                                    <path d="M12 7.5l-1 5.5" />
-                                    <path d="M11.6 10h2.4l-.5 3" />
-                                  </svg>
-                                PHP<br>
-                                <div class="text-primary text-lg">7 years</div>
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-typescript md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M15 17.5c.32 .32 .754 .5 1.207 .5h.543c.69 0 1.25 -.56 1.25 -1.25v-.25a1.5 1.5 0 0 0 -1.5 -1.5a1.5 1.5 0 0 1 -1.5 -1.5v-.25c0 -.69 .56 -1.25 1.25 -1.25h.543c.453 0 .887 .18 1.207 .5" />
-                                    <path d="M9 12h4" />
-                                    <path d="M11 12v6" />
-                                    <path d="M21 19v-14a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2 -2z" />
-                                  </svg>
-                                TypeScript<br>
-                                <div class="text-primary text-lg">3 year</div>
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coffee md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M3 14c.83 .642 2.077 1.017 3.5 1c1.423 .017 2.67 -.358 3.5 -1c.83 -.642 2.077 -1.017 3.5 -1c1.423 -.017 2.67 .358 3.5 1" />
-                                    <path d="M8 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2" />
-                                    <path d="M12 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2" />
-                                    <path d="M3 10h14v5a6 6 0 0 1 -6 6h-2a6 6 0 0 1 -6 -6v-5z" />
-                                    <path d="M16.746 16.726a3 3 0 1 0 .252 -5.555" />
-                                  </svg>
-                                Java<br>
-                                <div class="text-primary text-lg">1 year</div>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                    <h3 class="text-white text-2xl my-2">Frameworks and Libraries</h3>
-                    <div class="flex flex-wrap my-6">
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-angular md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M5.428 17.245l6.076 3.471a1 1 0 0 0 .992 0l6.076 -3.471a1 1 0 0 0 .495 -.734l1.323 -9.704a1 1 0 0 0 -.658 -1.078l-7.4 -2.612a1 1 0 0 0 -.665 0l-7.399 2.613a1 1 0 0 0 -.658 1.078l1.323 9.704a1 1 0 0 0 .495 .734z" />
-                                    <path d="M9 15l3 -8l3 8" />
-                                    <path d="M10 13h4" />
-                                  </svg>
-                                Angular<br>
-                                  <div class="text-primary text-lg">4 years</div>  
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg  xmlns="http://www.w3.org/2000/svg"  class="icon icon-tabler icon-tabler-brand-angular md:float-left m-auto md:mr-2 -rotate-45"width="60"  height="60"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="0.5"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circuit-capacitor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 12h-8" /><path d="M2 12h8" /><path d="M10 7v10" /><path d="M14 7v10" /></svg>
-                                CapacitorJS<br>
-                                  <div class="text-primary text-lg">1 years</div>  
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flame md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12 12c2 -2.96 0 -7 -1 -8c0 3.038 -1.773 4.741 -3 6c-1.226 1.26 -2 3.24 -2 5a6 6 0 1 0 12 0c0 -1.532 -1.056 -3.94 -2 -5c-1.786 3 -2.791 3 -4 2z" />
-                                  </svg>
-                                CodeIgniter<br>
-                                  <div class="text-primary text-lg">5 years</div>  
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-nodejs md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M9 9v8.044a2 2 0 0 1 -2.996 1.734l-1.568 -.9a3 3 0 0 1 -1.436 -2.561v-6.635a3 3 0 0 1 1.436 -2.56l6 -3.667a3 3 0 0 1 3.128 0l6 3.667a3 3 0 0 1 1.436 2.561v6.634a3 3 0 0 1 -1.436 2.56l-6 3.667a3 3 0 0 1 -3.128 0" />
-                                    <path d="M17 9h-3.5a1.5 1.5 0 0 0 0 3h2a1.5 1.5 0 0 1 0 3h-3.5" />
-                                  </svg>
-                                NodeJs<br>
-                                  <div class="text-primary text-lg">1 year</div>  
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-vue md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M16.5 4l-4.5 8l-4.5 -8" />
-                                    <path d="M3 4l9 16l9 -16" />
-                                  </svg>
-                                VueJs<br>
-                                  <div class="text-primary text-lg">1 year</div>  
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-bootstrap md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M2 12a2 2 0 0 0 2 -2v-4a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2" />
-                                    <path d="M2 12a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-4a2 2 0 0 1 2 -2" />
-                                    <path d="M9 16v-8h3.5a2 2 0 1 1 0 4h-3.5h4a2 2 0 1 1 0 4h-4z" />
-                                  </svg>
-                                Boostrap<br>
-                                  <div class="text-primary text-lg">5 years</div>  
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-letter-j-small md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M10 8h4v6a2 2 0 1 1 -4 0" />
-                                  </svg>
-                                JQuery<br>
-                                  <div class="text-primary text-lg">5 years</div>  
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="text-white text-2xl my-2">CMS Platform</h3>
-                    <div class="flex flex-wrap my-6">
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-wordpress md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M9.5 9h3" />
-                                    <path d="M4 9h2.5" />
-                                    <path d="M11 9l3 11l4 -9" />
-                                    <path d="M5.5 9l3.5 11l3 -7" />
-                                    <path d="M18 11c.177 -.528 1 -1.364 1 -2.5c0 -1.78 -.776 -2.5 -1.875 -2.5c-.898 0 -1.125 .812 -1.125 1.429c0 1.83 2 2.058 2 3.571z" />
-                                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                                  </svg>
-                                WordPress<br>
-                                  <div class="text-primary text-lg">5 years</div>  
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-drupal md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12 2c0 4.308 -7 6 -7 12a7 7 0 0 0 14 0c0 -6 -7 -7.697 -7 -12z" />
-                                    <path d="M12 11.33a65.753 65.753 0 0 1 -2.012 2.023c-1 .957 -1.988 1.967 -1.988 3.647c0 2.17 1.79 4 4 4s4 -1.827 4 -4c0 -1.676 -.989 -2.685 -1.983 -3.642c-.42 -.404 -2.259 -2.357 -5.517 -5.858l3.5 3.83z" />
-                                  </svg>
-                                Drupal<br>
-                                  <div class="text-primary text-lg">1 year</div>  
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="text-white text-2xl my-2">Other tools</h3>
-                    <div class="flex flex-wrap my-6">
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-adobe md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12.893 4.514l7.977 14a.993 .993 0 0 1 -.394 1.365a1.04 1.04 0 0 1 -.5 .127h-3.476l-4.5 -8l-2.5 4h1.5l2 4h-8.977c-.565 0 -1.023 -.45 -1.023 -1c0 -.171 .045 -.34 .13 -.49l7.977 -13.993a1.034 1.034 0 0 1 1.786 0z" />
-                                  </svg>
-                                Adobe Photoshop<br>
-                                  <div class="text-primary text-lg">4 years</div>  
-                            </div>
-                        </div>
-                        <div class="max-md:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-1">
-                            <div class="skill-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-adobe md:float-left m-auto md:mr-2" width="60" height="60" viewBox="0 0 24 24" stroke-width="0.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12.893 4.514l7.977 14a.993 .993 0 0 1 -.394 1.365a1.04 1.04 0 0 1 -.5 .127h-3.476l-4.5 -8l-2.5 4h1.5l2 4h-8.977c-.565 0 -1.023 -.45 -1.023 -1c0 -.171 .045 -.34 .13 -.49l7.977 -13.993a1.034 1.034 0 0 1 1.786 0z" />
-                                  </svg>
-                                Adobe Illustrator<br>
-                                  <div class="text-primary text-lg">1 year</div>  
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="text-white text-2xl my-2">Important Knowledge</h3>
-                    <div class="flex flex-wrap my-6 line-">
-                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2">Object-oriented programming</span>
-                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2">MVC Architecture software</span>
-                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2">UI / UX designer</span>
-                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2">Database Modeling, SQL</span>
-                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2">HTML, CSS</span>
-                        <span class="block rounded-full py-1 px-4 border-zinc-700 border mb-2">Responsive design</span>
-                    </div>
-                </div>
-
-                <div class="spacing w-full h-10 md:h-20"></div>
-                <!-- +++++++ Portafolio +++++++ -->
+<!-- +++++++ Portafolio +++++++ -->
                 <div id="projects" class="my-10 pt-8" 
                     x-data="{ 
                         selectedCategory: 'All', 
@@ -368,7 +30,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || handymanProject.includes(selectedCategory)">
                             <div id="handyman-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/handyman-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/handyman-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32">
@@ -437,7 +99,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || spadamProject.includes(selectedCategory)">
                             <div id="spadam-app-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/spadam-app-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/spadam-app-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
@@ -507,7 +169,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || webPlanificateProject.includes(selectedCategory)">
                             <div id="web-planificate-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/webplanificate-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/webplanificate-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
@@ -542,7 +204,9 @@
                                 <div class="px-4 pb-4">
                                     <strong>Brief description</strong>
                                     <p class=" text-sm">
-                                        Information Assistant for the Call Center
+                                        Information Assistant for the Call Center:<br>
+                                        The app collects key customer data and displays details about their current plan, benefits, and internet data usage. Based on this information, 
+                                        it recommends the most suitable plan for the customer and provides tips or guidance to improve their experience or resolve potential issues.
                                     </p>
                                 </div>
                             </div>
@@ -551,7 +215,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || pdaTigoProject.includes(selectedCategory)">
                             <div id="pda-tigo-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/pda-tigo-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/pda-tigo-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
@@ -595,7 +259,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || handladigitaltProject.includes(selectedCategory)">
                             <div id="relier-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/handladigitalt-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/handladigitalt-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
@@ -638,7 +302,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || checkingcomProject.includes(selectedCategory)">
                             <div id="relier-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/checkin-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/checkin-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
@@ -670,8 +334,8 @@
                                 <div class="px-4 pb-4">
                                     <strong>Brief description</strong>
                                     <p class=" text-sm">
-                                        An online store where a complete upgrade from PHP 5 to PHP 8 was carried out, along with library updates, 
-                                        improvements to its functionalities, support in the checkout process, and performance optimization of the site.
+                                        A WordPress website built to be extremely lightweight, using a fully custom template and no plugins. 
+                                        Developed with pixel-perfect precision based on the Figma design, and optimized with solid SEO best practices.
                                     </p>
                                 </div>
                             </div>
@@ -681,7 +345,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || relierProject.includes(selectedCategory)">
                             <div id="relier-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/relier-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/relier-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
@@ -725,7 +389,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || nubederegalosProject.includes(selectedCategory)">
                             <div id="relier-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/nubederegalos-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/nubederegalos-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
@@ -759,7 +423,8 @@
                                 <div class="px-4 pb-4">
                                     <strong>Brief description</strong>
                                     <p class=" text-sm">
-                                        Site in Wordpress with DIVI builder. All sections of the site were updated based on created design by graphic designers. Optimized in performance for SEO. 
+                                        A WordPress site built using a customized theme to match the business model’s design requirements. 
+                                        Products were organized into specific categories and fully configured using WooCommerce
                                     </p>
                                 </div>
                             </div>
@@ -769,7 +434,7 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || wownomadsProject.includes(selectedCategory)">
                             <div id="wownomads-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/wow-nomads-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/wow-nomads-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
@@ -813,19 +478,20 @@
                         <div class="w-full" x-show="selectedCategory == 'All' || commentusProject.includes(selectedCategory)">
                             <div id="commentus-project" class="project-card group">
                                 <div class="relative">
-                                    <img src="./img/commentus-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
+                                    <img src="./uploads/commentus-project.jpg" class="w-full opacity-65 group-hover:opacity-90 rounded-3xl ease-in-out duration-300" alt="Project 1">
                                     <div class="absolute bg-gradient-to-t from-zinc-900 from-10% w-full h-full left-0 top-0"></div>
                                 </div>
                                 <div class="flex flex-wrap relative w-full p-4 text-white text-sm rounded-b-3xl -mt-24 md:-mt-32 items-center">
                                     <h3 class="text-white text-2xl md:text-4xl my-2 w-full md:w-1/2">CommentUs Dashboard</h3>
                                     <div class="flex justify-end w-full md:w-1/2 gap-2">
-                                        <a href="https://commentus.io/" title="CommentUs Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link hover:stroke-primary" width="25" height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <a href="https://client-commentus.innova-cube.com/" title="CommentUs Website" class="rounded-full p-2 border border-white hover:border-primary block w-fit h-fit" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-dashboard hover:stroke-primary" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
-                                                <path d="M11 13l9 -9" />
-                                                <path d="M15 4h5v5" />
-                                              </svg>
+                                                <path d="M4 4h6v8h-6z" />
+                                                <path d="M4 16h6v4h-6z" />
+                                                <path d="M14 12h6v8h-6z" />
+                                                <path d="M14 4h6v4h-6z" />
+                                            </svg>
                                         </a>
                                     </div>
                                     <div class="flex flex-wrap w-full">
@@ -857,87 +523,3 @@
                         
                     </div>
                 </div>
-
-                <div class="spacing w-full h-10 md:h-20"></div>
-                <!-- +++++++ Education & Experience +++++++ -->
-                <div id="experience" class="my-10 pt-8">
-                    <h2 class="text-5xl max-md:text-4xl text-white mb-8">Experience &  <span class="text-primary">Education</span></h2>
-                    <div class="flex flex-col gap-0">
-                        <div class="experience">
-                            <span class="date">August 2017 – June 2023</span>
-                            <h3>Full Stack Web Developer</h3>
-                            <p>Game Lounge</p>
-                            <p>
-                               <ul>
-                                <li>Analysis and objective maintenance for SEO on hundrends of pages.</li>
-                                <li>Developed Mobile apps using Angular, AngularJS, Ionic,PHP, MySQL (Spadam.se, Domainstats.com )</li>
-                               </ul> 
-                            </p>
-                        </div>
-                        <div class="experience">
-                            <span class="date">Since 2018</span>
-                            <h3>Fullstack Developer</h3>
-                            <p>HandyMan Project</p>
-                            <p>
-                                Frontend, backend, main site, dashboard administration and all graphic designs of the platform are developed by myself.
-                            </p>
-                        </div>
-                        <div class="experience">
-                            <span class="date">July 2018 - Abril 2023</span>
-                            <h3>Frontend Developer</h3>
-                            <p>Mod Army</p>
-                            <p>
-                                <ul>
-                                    <li>Project Manager Frontend development in a Help Assistant for Call centers (called WebPlanificate ver.2). (Drupal and Java in backend)</li>
-                                    <li>PDA Tigo: Line recovery by scanning the client's CI and SIM Card. Used from mobile devices. (Angular, IONIC, AWS Services)</li>
-                                    <li>Web app for nomads users. Developed on Angular 13 Fronend and CodeIgniter 4 Backend. Link: Wownomads.com</li>
-                                </ul>
-                            </p>
-                        </div>
-                        <div class="experience">
-                            <span class="date">November 2013 - August 2017</span>
-                            <h3>Senior Web Developer</h3>
-                            <p>TodaysWeb</p>
-                            <p>
-                                <ul>
-                                    <li>Working with SEO strategy and improving sites to achieve prominent rankings across top browser platforms</li>
-                                    <li>Worked on developing Mobile apps focused on Geo Location (Alttibil App)</li>
-                                    <li>Support and manage Wordpress sites</li>
-                                </ul>
-                            </p>
-                        </div>
-                        <div class="experience">
-                            <span class="date">July 2008 - September 2013</span>
-                            <h3>Web Development</h3>
-                            <p>Wired and Wireless Telecommunication</p>
-                            <p>
-                                <ul>
-                                    <li>Developer and designer in interactive games for touch screens for VIVA and TIGO telecommunication companies (ActionScript and JavaScript)</li>
-                                    <li>Coded websites using PHP frameworks (Codeigniter, Symfony, CakerPHP), HTML, CSS, JavaScript, and jQuery languages.</li>
-                                    <li>Advertising designer for banners and video clips(Adobe After Effects, Photoshop and Illustrator)</li>
-                                    <li>A Backtones app for cell phones which had a list of songs categorized by genre and ranking. For VIVA Telecommunication company</li>
-                                </ul>
-                            </p>
-                        </div>
-                        <div class="experience">
-                            <span class="date">March 2006 - September 2013</span>
-                            <h3>Web Development</h3>
-                            <p>Omnilogic SRL</p>
-                            <p>
-                                <ul>
-                                    <li>Developer and designer in interactive games for touch screens for VIVA and TIGO telecommunication companies (ActionScript and JavaScript)</li>
-                                    <li>Coded websites using PHP frameworks (Codeigniter, Symfony, CakerPHP), HTML, CSS, JavaScript, and jQuery languages.</li>
-                                    <li>Advertising designer for banners and video clips(Adobe After Effects, Photoshop and Illustrator)</li>
-                                    <li>A Backtones app for cell phones which had a list of songs categorized by genre and ranking. For VIVA Telecommunication company</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </main>
-    
-  </body>
-</html>
